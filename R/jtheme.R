@@ -145,7 +145,9 @@ jtheme <- function(
     if (!show_leg_title) th <- th + theme(legend.title = element_blank())
 
     # Rotate x axis label to 30°, 45° or 90°.
-    if (rotate_x_labs == 90L) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
+    if (rotate_x_labs == 90L) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5, hjust=1))
+    if (rotate_x_labs == 45L) th <- th + theme(axis.text.x = element_text(angle = 45L, vjust = 1, hjust=1))
+    if (rotate_x_labs == 30L) th <- th + theme(axis.text.x = element_text(angle = 30L, vjust = 1, hjust=1))
 
     # Add tight setting option for facets.
     if (tight_facets)  {
