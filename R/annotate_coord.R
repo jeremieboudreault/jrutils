@@ -86,12 +86,14 @@ annotate_coord <- function(
                   NW = -1
     )
     annotation_custom(
-        grid::textGrob(label,
-                       x      = grid::unit(x,"npc") + f1*padding[1] ,
-                       y      = grid::unit(y,"npc") + f2*padding[2],
-                       hjust  = hjust,
-                       vjust  = vjust,
-                       ...
+        grid::textGrob(
+            label,
+            x      = grid::unit(x,"npc") + f1*padding[1] ,
+            y      = grid::unit(y,"npc") + f2*padding[2],
+            hjust  = hjust,
+            vjust  = vjust,
+            gp     = grid::gpar(fontfamily = "Source Sans Pro", fontsize = 11L)
+            ...
         )
     )
 
