@@ -52,3 +52,19 @@ install.packages(
 ```r
 library(rjutils)
 ```
+
+---
+
+Bugfixes
+--------------------------------------------------------------------------------
+
+- Remove warnings() when using jarrange
+- Add facet title and size to params
+- Ad rotate_x_lab_45 and _90 to the functions
+- Move all others functions to jtheme or jutils prior to article 3
+- Test error message for save_plot()
+- 50: In grid.Call(C_textBounds, as.graphicsAnnot(x$label),  ... : largeur de police inconnue pour le caractère 0x20
+- Add the empty plot in jtheme.
+- fast histogram and fast scatter plot
+- Add colors of the models
+
