@@ -58,13 +58,24 @@ library(rjutils)
 Bugfixes
 --------------------------------------------------------------------------------
 
-- Remove warnings() when using jarrange
-- Add facet title and size to params
-- Ad rotate_x_lab_45 and _90 to the functions
-- Move all others functions to jtheme or jutils prior to article 3
-- Test error message for save_plot()
-- 50: In grid.Call(C_textBounds, as.graphicsAnnot(x$label),  ... : largeur de police inconnue pour le caractère 0x20
-- Add the empty plot in jtheme.
-- fast histogram and fast scatter plot
-- Add colors of the models
 
+### To-do
+
+- Move all others functions to jtheme or jutils prior to article 3
+- Ad rotate_x_lab_45 and _90 to the functions
+- Test error message for save_plot()
+- Remove w = h = for save_plot and save_ggplot. Replace by size = c(w, h)
+
+### Work in progres : 
+
+- **Remove warnings() when using jarrange** : Connot reproduce
+- **50: In grid.Call(C_textBounds, as.graphicsAnnot(x$label),  ... : largeur de police inconnue pour le caractère 0x20** : Cannot reproduce
+
+### Done : 
+
+- Add facet title and size to params of `jtheme(facet_size = 10L, facet_face = "bold")`
+- Added Fast histogram `plot_hist(x, main, fill)` 
+- Added fast scatter plot `plot_scatter(x, y, main, col)` in `plots.R`
+- Add colors of the models in `pal_rbow`
+- Renamed `colors` to `pal_rdbu`
+- Add the empty plot in jtheme `plot_void()` in the plots.R
