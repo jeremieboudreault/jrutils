@@ -33,7 +33,7 @@ jarrange <- function(
 ) {
 
     # Convert to list if the plist is not a list.
-    if (!is.list(plist)) {
+    if (class(plist)[1L] != "list") {
         warning("'plist' is not a list. Make sure it is an appropriate object for plotting.")
         plist <- list(plist)
     }
