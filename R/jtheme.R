@@ -23,7 +23,7 @@
 #'
 #' @export
 jtheme <- function(
-    borders          = "normal",
+    borders          = "all",
     expand_xy        = TRUE,
     legend_alpha     = NULL,
     legend_byrow     = FALSE,
