@@ -1,4 +1,4 @@
-***rjutils*** : Enhanced R functions for plotting and data manipulation.
+***rjutils*** : Enhanced R functions
 ================================================================================
 
 ![](https://img.shields.io/badge/life_cycle-maturing-blue)
