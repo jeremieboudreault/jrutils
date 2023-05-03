@@ -61,7 +61,7 @@ plot_void <- ggplot2::ggplot() + ggplot2::theme_void()
 #' Plot random
 #'
 #' @export
-plot_random <- function(id) {
+plot_random <- function(id = 1) {
 
     if (id == 1) {
         return(
