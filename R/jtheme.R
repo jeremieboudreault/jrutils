@@ -18,6 +18,8 @@
 #' @param tight_facet : Toogle on/off the tight facetting
 #' @param title_size : Customise title size. Default to `14L`.
 #' @param title_face : Customise title face. Default to `"bold"`.
+#' @param facet_size : Customise facet title size. Default to `10L`.
+#' @param facet_face : Customise facet title face. Default to `"bold"`.
 #' @param x_labs_to_months : Transformation of julian days to month (TRUE/FALSE).
 #' @param language : Language of the plot ('fr' or 'eng')
 #'
@@ -36,6 +38,8 @@ jtheme <- function(
     tight_facets     = FALSE,
     title_size       = 14L,
     title_face       = "bold",
+    facet_size       = 10L,
+    facet_face       = "bold",
     x_labs_to_months = FALSE,
     language         = "eng") {
 
@@ -133,7 +137,7 @@ jtheme <- function(
 
         # Facets.
         strip.background = element_rect(fill = "white"),
-        strip.text       = element_text(face = "bold", size = 10)
+        strip.text       = element_text(face = facet_face, size = facet_size)
 
     )
 
