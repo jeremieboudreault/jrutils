@@ -9,26 +9,39 @@
 #' when you need all your figures to have the same aspect ratio.
 #'
 #' @param file : Filename to save the plot.
-#' @param size : One of the predefined sizes given in 'sizes_map'.
+#' @param size : One of the predefined sizes given in 'sizes_map' or a vector of size 2.
 #' @param ... : Other arguments passed to [ggplot2::ggsave()].
 #'
 #' @include globals.R
 #'
 #' @export
-save_ggplot <- function(file, size = "rect", w = NULL, h = NULL, ...) {
+save_ggplot <- function(file, size = "rect", ...) {
 
     # Extract size from the mapping.
-    sizewh <- sizes_map[[size]]
+    if (length(size) == 1L) {
 
-    # Check if it is null.
-    if (is.null(sizewh)) {
-        warning("'size' invalid. Using default value 'rect'.")
-        sizewh <- sizes_map[["rect"]]
-    }
+        # Extract size.
+        sizewh <- sizes_map[[size]]
 
-    # Custom size.
-    if (!is.null(w) & !is.null(h)) {
-        sizewh <- c(w, h)
+        # Check if it is null.
+        if (is.null(sizewh)) {
+            warning("'size' invalid. Using default value 'rect'.")
+            sizewh <- sizes_map[["rect"]]
+        }
+
+    # Use custom size from a vector.
+    } else if (length(size) == 2L &
+               class(size[1L]) %in% c("numeric", "integer") &
+               class(size[2L]) %in% c("numeric", "integer")) {
+
+        # Use custom size.
+        sizewh <- size
+
+    } else {
+
+        # Throw error.
+        stop("Invalid size provided.\n> Should be a name or a vector of size 2.")
+
     }
 
     # Save plot.
@@ -39,3 +52,4 @@ save_ggplot <- function(file, size = "rect", w = NULL, h = NULL, ...) {
         ...      = ...
     )
 }
+

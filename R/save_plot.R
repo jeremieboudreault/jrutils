@@ -18,18 +18,31 @@
 #' @export
 save_plot <- function(file, size = "rect", pl_expr, res = 300L, w = NULL, h = NULL) {
 
-    # Extract size
-    sizewh <- sizes_map[[size]]
+    # Extract size from the mapping.
+    if (length(size) == 1L) {
 
-    # Check if it is null.
-    if (is.null(sizewh)) {
-        warning("'size' invalid. Using default value 'rect'.")
-        sizewh <- sizes_map[["rect"]]
-    }
+        # Extract size.
+        sizewh <- sizes_map[[size]]
 
-    # Custom size.
-    if (!is.null(w) & !is.null(h)) {
-        sizewh <- c(w, h)
+        # Check if it is null.
+        if (is.null(sizewh)) {
+            warning("'size' invalid. Using default value 'rect'.")
+            sizewh <- sizes_map[["rect"]]
+        }
+
+    # Use custom size from a vector.
+    } else if (length(size) == 2L &
+            class(size[1L]) %in% c("numeric", "integer") &
+            class(size[2L]) %in% c("numeric", "integer")) {
+
+        # Use custom size.
+        sizewh <- size
+
+    } else {
+
+        # Throw error.
+        stop("Invalid size provided.\n> Should be a name or a vector of size 2.")
+
     }
 
     # Convert to the correct size.
