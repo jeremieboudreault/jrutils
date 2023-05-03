@@ -1,0 +1,30 @@
+Package: rjutils
+Type: Package
+Title: Enhanced R functions
+Version: 0.1
+Author: Jeremie Boudreault
+Maintainer: Jeremie Boudreault <prename.name@inrs.ca>
+Description: rjutils is a combination of R functions, especially for plotting and
+            data management purposes.
+Imports: ggplot2, extrafont
+Suggests: ggpubr
+License: CC BY-NC-SA 4.0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
+Collate: 
+    'annotate_coord.R'
+    'annotate_pos.R'
+    'colors.R'
+    'globals.R'
+    'jarrange.R'
+    'jtheme.R'
+    'onAttach.R'
+    'plot_pal.R'
+    'round_trim.R'
+    'save_ggplot.R'
+    'save_plot.R'
+    'to_factor.R'
+    'to_lower.R'
+    'ul.R'
