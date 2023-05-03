@@ -92,7 +92,7 @@ annotate_coord <- function(
             y      = grid::unit(y,"npc") + f2*padding[2],
             hjust  = hjust,
             vjust  = vjust,
-            gp     = grid::gpar(fontfamily = "Source Sans Pro", fontsize = 11L)
+            gp     = grid::gpar(fontfamily = "Source Sans Pro", fontsize = 11L),
             ...
         )
     )
