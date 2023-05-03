@@ -5,3 +5,5 @@
 .DS_Store
 .Rbuildignore
 Rplots.pdf
+man/*
+NAMESPACE
