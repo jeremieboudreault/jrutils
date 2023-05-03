@@ -13,7 +13,7 @@
 #' @param legend_nrow : Number of row the the legend.
 #' @param legend_ncol : Number of cols the the legend.
 #' @param legend_byrow : Should the legend be filled by row.
-#' @param rotate_x_labs : Parameter to rotate the x labels.
+#' @param rotate_x_labs : Parameter to rotate the x labels to 30°, 45° or 90°. Default to `FALSE`.
 #' @param show_grid : Toggle on/off the grid on ggplot2.
 #' @param tight_facet : Toogle on/off the tight facetting
 #' @param title_size : Customise title size. Default to `14L`.
@@ -144,8 +144,8 @@ jtheme <- function(
     # Remove show_leg_title.
     if (!show_leg_title) th <- th + theme(legend.title = element_blank())
 
-    # Rotate x axis label
-    if (rotate_x_labs) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
+    # Rotate x axis label to 30°, 45° or 90°.
+    if (rotate_x_labs == 90L) th <- th + theme(axis.text.x = element_text(angle = 90L, vjust = 0.5))
 
     # Add tight setting option for facets.
     if (tight_facets)  {
