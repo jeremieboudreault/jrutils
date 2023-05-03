@@ -74,8 +74,8 @@ Bugfixes
 ### Done : 
 
 - Add facet title and size to params of `jtheme(facet_size = 10L, facet_face = "bold")`
-- Added Fast histogram `plot_hist(x, main, fill)` 
+- Added fast histogram `plot_hist(x, main, fill)`  in `plots.R`
 - Added fast scatter plot `plot_scatter(x, y, main, col)` in `plots.R`
-- Add colors of the models in `pal_rbow`
-- Renamed `colors` to `pal_rdbu`
-- Add the empty plot in jtheme `plot_void()` in the plots.R
+- Added empty plot in `plot_void()` in `plots.R`
+- Added another palette of colors (rainbow) in `pal_rbow`
+- Renamed `colors` palette to `pal_rdbu` and rearrange order of colors
