@@ -62,16 +62,15 @@ Bugfixes
 ### To-do
 
 - Move all others functions to jtheme or jutils prior to article 3
-- Ad rotate_x_lab_45 and _90 to the functions
 - Test error message for save_plot()
 - Remove w = h = for save_plot and save_ggplot. Replace by size = c(w, h)
 
-### Work in progres : 
+### Work in progres :
 
 - **Remove warnings() when using jarrange** : Connot reproduce
 - **50: In grid.Call(C_textBounds, as.graphicsAnnot(x$label),  ... : largeur de police inconnue pour le caractère 0x20** : Cannot reproduce
 
-### Done : 
+### Done :
 
 - Add facet title and size to params of `jtheme(facet_size = 10L, facet_face = "bold")`
 - Added fast histogram `plot_hist(x, main, fill)`  in `plots.R`
@@ -79,3 +78,5 @@ Bugfixes
 - Added empty plot in `plot_void()` in `plots.R`
 - Added another palette of colors (rainbow) in `pal_rbow`
 - Renamed `colors` palette to `pal_rdbu` and rearrange order of colors
+- Implemented `rotate_x_lab = 90, 45 and 30` instead of `TRUE`
+
