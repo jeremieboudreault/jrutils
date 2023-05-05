@@ -7,6 +7,7 @@
 #' add-on to graph that are explained below.
 #'
 #' @param borders : Show "all" (all around the plot), "normal" (x and y axe) or "hide" borders.
+#' @params axes : Should the axes be displayed or not.
 #' @param expand_xy : Should an extra spacing be added `x`/`y` values and axes. Values are `TRUE`, `FALSE`, `"x_only"` and `"y_only"`.
 #' @param legend_pos : Legend position. `bottomright`, `topleft`, `topright`
 #' refers o inner legend while `bottom`, `left` refers to legend outside of the plot.
@@ -25,6 +26,7 @@
 #'
 #' @export
 jtheme <- function(
+    axes             = TRUE,
     borders          = "all",
     expand_xy        = TRUE,
     legend_alpha     = NULL,
@@ -98,25 +100,8 @@ jtheme <- function(
             margin = margin(b = 10, t = -5)
         ),
 
-        # Axis title.
-        axis.title = element_text(size = 11L),
-
         # Legend title size.
         legend.title = element_text(size = 9.5),
-
-        # Axis text (labels)
-        axis.text = element_text(size = 9.5, color = "black"),
-
-        # Increases margins.
-        axis.text.x.bottom = element_text(margin = margin(t = 5, b = 5)),
-        axis.text.x.top    = element_text(margin = margin(t = 5, b = 5)),
-        axis.text.y.right  = element_text(margin = margin(r = 5, l = 5)),
-        axis.text.y.left   = element_text(margin = margin(r = 5, l = 5)),
-
-        # Set axis lines and ticks.
-        axis.line         = element_line(size = axis.size, colour = axis.color),
-        axis.ticks        = element_line(size = axis.size, colour = ticks.color),
-        axis.ticks.length = unit(ifelse(borders == "hide", 0, .15), "cm"),
 
         # Set grid.
         panel.grid.major = element_line(
@@ -140,6 +125,39 @@ jtheme <- function(
         strip.text       = element_text(face = facet_face, size = facet_size)
 
     )
+
+    # Set axes.
+    if (axes == FALSE) {
+        th <- th + theme(
+            axis.text.x  = element_blank(),
+            axis.ticks.x = element_blank(),
+            axis.text.y  = element_blank(),
+            axis.ticks.y = element_blank()
+        )
+
+    } else {
+
+        th <- th + theme(
+
+            # Axis title.
+            axis.title = element_text(size = 11L),
+
+            # Axis text (labels)
+            axis.text = element_text(size = 9.5, color = "black"),
+
+            # Set axis lines and ticks.
+            axis.line         = element_line(size = axis.size, colour = axis.color),
+            axis.ticks        = element_line(size = axis.size, colour = ticks.color),
+            axis.ticks.length = unit(ifelse(borders == "hide", 0, .15), "cm"),
+
+            # Set axis border.
+            axis.text.x.bottom = element_text(margin = margin(t = 5, b = 5)),
+            axis.text.x.top    = element_text(margin = margin(t = 5, b = 5)),
+            axis.text.y.right  = element_text(margin = margin(r = 5, l = 5)),
+            axis.text.y.left   = element_text(margin = margin(r = 5, l = 5))
+
+        )
+    }
 
     # Remove show_leg_title.
     if (!show_leg_title) th <- th + theme(legend.title = element_blank())

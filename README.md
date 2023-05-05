@@ -63,6 +63,7 @@ Bugfixes
 
 - Move all others functions to jtheme or jutils prior to article 3
 - Test error message for save_plot()
+- Get rid of the creation of Rplots.pdf at the root of the project
 
 ### Work in progres :
 
@@ -79,4 +80,4 @@ Bugfixes
 - Renamed `colors` palette to `pal_rdbu` and rearrange order of colors
 - Implemented `rotate_x_lab = 90, 45 and 30` instead of `TRUE`
 - Removed w and h for save_plot and save_ggplot. Replace by `size = c(w, h)`
-
+- Implemented `axes = FALSE` to remove axes for maps. To be used with `labs(x = NULL, y = NULL)`
