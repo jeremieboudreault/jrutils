@@ -7,7 +7,7 @@
 #' add-on to graph that are explained below.
 #'
 #' @param borders : Show "all" (all around the plot), "normal" (x and y axe) or "hide" borders.
-#' @params axes : Should the axes be displayed or not.
+#' @param axes : Should the axes be displayed or not.
 #' @param expand_xy : Should an extra spacing be added `x`/`y` values and axes. Values are `TRUE`, `FALSE`, `"x_only"` and `"y_only"`.
 #' @param legend_pos : Legend position. `bottomright`, `topleft`, `topright`
 #' refers o inner legend while `bottom`, `left` refers to legend outside of the plot.
