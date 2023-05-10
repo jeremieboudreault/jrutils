@@ -86,17 +86,19 @@ plot_random <- function(id = 1) {
 #'
 #' @export
 
-plot_pal <- function(pal) {
+plot_pal <- function(pal, rotate_x_labs = FALSE) {
 
-    plot(
-        x   = seq_along(pal),
-        y   = rep(1, length(pal)),
-        col = pal,
-        pch = 19,
-        cex = 5
-    )
+    if (is.list(pal)) pal <- unlist(pal)
+    nms <- if (is.null(names(pal))) seq_along(pal) else names(pal)
+
+    ggplot(
+        data = data.frame(x = rjutils::to_factor(nms), y = rep(1, length(pal))),
+        mapping = ggplot2::aes(x = x, y = y, fill = x)
+    ) +
+    geom_col(show.legend = FALSE) +
+    scale_fill_manual(values = pal) +
+    labs(x = NULL, y = NULL, fill = NULL) +
+    rjutils::jtheme(rotate_x_labs = rotate_x_labs, borders = "normal", expand = "x_only")
 
 }
-
-
 

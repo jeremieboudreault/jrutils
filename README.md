@@ -81,3 +81,4 @@ Bugfixes
 - Implemented `rotate_x_lab = 90, 45 and 30` instead of `TRUE`
 - Removed w and h for save_plot and save_ggplot. Replace by `size = c(w, h)`
 - Implemented `axes = FALSE` to remove axes for maps. To be used with `labs(x = NULL, y = NULL)`
+- Plot named color of palette when using `plot_pal`. Possibility to rotate names to 90°. Now accept list and vector.
