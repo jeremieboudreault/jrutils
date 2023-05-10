@@ -12,10 +12,11 @@
 plot_hist <- function(x, main = NULL, fill = NULL, bins = 16, ...) {
 
     ggplot(
-        data = data.frame(x = x),
+        data    = data.frame(x = x),
+        mapping = aes(x = x, fill = fill)
     ) +
     geom_histogram(
-        mapping  = aes(x = x, y = ..density.., fill = fill),
+        mapping  = aes(y = ..density..),
         position = "dodge",
         bins     = bins
     ) +
@@ -40,13 +41,11 @@ plot_hist <- function(x, main = NULL, fill = NULL, bins = 16, ...) {
 plot_scatter <- function(x, y, main = NULL, col = NULL, ...) {
 
     ggplot(
-        data = data.frame(x = x, y = y),
+        data    = data.frame(x = x, y = y),
+        mapping = aes(x = x, y = y, col = col)
     ) +
-        geom_point(
-            mapping = aes(x = x, y = y, col = col)
-        ) +
-        ggtitle(label = main) +
-        jtheme(...)
+    ggtitle(label = main) +
+    jtheme(...)
 
 }
 
