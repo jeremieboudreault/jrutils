@@ -44,6 +44,7 @@ plot_scatter <- function(x, y, main = NULL, col = NULL, ...) {
         data    = data.frame(x = x, y = y),
         mapping = aes(x = x, y = y, col = col)
     ) +
+    geom_point() +
     ggtitle(label = main) +
     jtheme(...)
 
