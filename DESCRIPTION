@@ -16,7 +16,9 @@ Roxygen: list(markdown = TRUE)
 Collate: 
     'annotate_coord.R'
     'annotate_pos.R'
+    'create_lagged_var.R'
     'globals.R'
+    'interpolate_na.R'
     'jarrange.R'
     'jtheme.R'
     'onAttach.R'
