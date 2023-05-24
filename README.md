@@ -82,5 +82,8 @@ Bugfixes
 - Removed w and h for save_plot and save_ggplot. Replace by `size = c(w, h)`
 - Implemented `axes = FALSE` to remove axes for maps. To be used with `labs(x = NULL, y = NULL)`
 - Plot named color of palette when using `plot_pal`. Possibility to rotate names to 90°. Now accept list and vector.
-- Moved `create_lagged_var` from data_weather to this package.
-- Moved `interpolate_na` from data_weather to this package.
+- Migrated `create_lagged_var` from data_weather to this package.
+- Migrated `interpolate_na` from data_weather to this package.
+- Migrated `xpaste0` from results to this package.
+- Migrated `narm`from results to this packages.
+- Combined all small low-level function in `helpers.R`
