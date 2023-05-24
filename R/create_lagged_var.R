@@ -17,7 +17,7 @@ create_lagged_var <- function(
         fun          = function(w, ...) mean(w, ...),
         ...) {
 
-    # First, we will look that data are ordered (by var_date) and complete.
+    # First, we will look that data are ordered (by dates) and complete.
     date_rng <- range(dates)
     date_seq <- seq(as.Date(date_rng[1L]), as.Date(date_rng[2L]), by = 1L)
 
