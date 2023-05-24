@@ -1,15 +1,18 @@
 # helpers.R
 
-# A combination of small function to perform operations.
-
+#' A combination of small function to perform operations.
+#' @name helpers
+#'
 #' @export
 narm <- function(x) return(x[!is.na(x)])
 
+#' @name helpers
 #' @export
 xpaste0 <- function(x, y, sep = "_") {
     as.vector(sapply(x, function(w) paste(w, y, sep = sep)))
 }
 
+#' @name helpers
 #' @export
 ul <- function(x, recursive = FALSE, use.names = FALSE) {
     unlist(x, recursive, use.names)
@@ -21,6 +24,7 @@ ul <- function(x, recursive = FALSE, use.names = FALSE) {
 #' @param x : The number of the rounded.
 #' @param nsmall : The number of digits.
 #'
+#' @name helpers
 #' @export
 round_trim <- function(x, nsmall) {
     format(
@@ -29,6 +33,7 @@ round_trim <- function(x, nsmall) {
     )
 }
 
+#' @name helpers
 #' @export
 to_percent <- function(x, nsmall = 1) {
     paste0(round_trim(x * 100, nsmall), "%")
@@ -39,7 +44,7 @@ to_percent <- function(x, nsmall = 1) {
 #' a string character to some factors for plotting purpose.
 #'
 #' @param rev : Do you want to reverse the levels.
-#'
+#' @name helpers
 #' @export
 to_factor <- function(x, rev = FALSE) {
     levels <- if (rev) rev(unique(x)) else unique(x)
