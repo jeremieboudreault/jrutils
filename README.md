@@ -61,6 +61,7 @@ Bugfixes
 
 ### To-do
 
+- Fix argument "bottom" in jarrange() that will put the label below the legend.
 - Move all others functions to jtheme or jutils prior to article 3
 - Test error message for save_plot()
 - Get rid of the creation of Rplots.pdf at the root of the project
