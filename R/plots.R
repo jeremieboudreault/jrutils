@@ -16,7 +16,7 @@ plot_hist <- function(x, main = NULL, fill = NULL, bins = 16, ...) {
         mapping = aes(x = x, fill = fill)
     ) +
     geom_histogram(
-        mapping  = aes(y = ..density..),
+        mapping  = aes(y = after_stat(density)),
         position = "dodge",
         bins     = bins
     ) +
