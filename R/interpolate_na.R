@@ -43,7 +43,7 @@ interpolate_na <- function(values, dates, window = 1L, na.rm = FALSE, verbose = 
 
         # Fixed values before the start of the values.
         is_bef <- is_bef[is_bef >= 1L]
-        is_aft <- is_aft[is_aft <= nrow(x)]
+        is_aft <- is_aft[is_aft <= length(values)]
 
         # Get values after and before.
         val_bef <- x_orig[is_bef]
