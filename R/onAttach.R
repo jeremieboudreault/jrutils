@@ -42,6 +42,10 @@
     # Change family of base plot.
     par(family = "Source Sans Pro")
 
+    # Delete unwanted file.
+    if (file.exists("Rplots.pdf"))
+        file.remove("Rplots.pdf")
+
     # Message.
     message("\U2713 Plots default aesthetics updated.")
 
