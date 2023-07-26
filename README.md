@@ -59,13 +59,15 @@ Bugfixes
 --------------------------------------------------------------------------------
 
 
-### To-do
+### To add
 
-- Fix argument "bottom" in jarrange() that will put the label below the legend.
-- Move all others functions to jtheme or jutils prior to article 3
-- Test error message for save_plot()
 - Add function to avoid decimal on x-axis
-- geom_col have a color around bar
+- Move all others functions to jtheme or jutils prior to article 3
+
+### To fix : 
+
+- Test error message for save_plot()
+- Fix argument "bottom" in jarrange() that will put the label below the legend.
 
 ### Work in progres :
 
