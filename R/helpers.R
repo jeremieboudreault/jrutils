@@ -18,6 +18,12 @@ ul <- function(x, recursive = FALSE, use.names = FALSE) {
     unlist(x, recursive, use.names)
 }
 
+#' @name helpers
+#' @export
+`%nin%` <- function(x, y) {
+    return(!(x %in% y))
+}
+
 #' @description
 #' `round_trim` is a wrapper for [base::round()] and [base::format()].
 #'

@@ -64,7 +64,10 @@ Bugfixes
 - Fix argument "bottom" in jarrange() that will put the label below the legend.
 - Move all others functions to jtheme or jutils prior to article 3
 - Test error message for save_plot()
-- Get rid of the creation of Rplots.pdf at the root of the project
+- Add function to avoid decimal on x-axis
+- Add %nin% funciton in rjutils
+- Add render_md_github
+- geom_col have a color around bar
 
 ### Work in progres :
 
@@ -88,3 +91,6 @@ Bugfixes
 - Migrated `xpaste0` from results to this package.
 - Migrated `narm`from results to this packages.
 - Combined all small low-level function in `helpers.R`
+- Got rid of .Rplots.pdf at the root of all Rproject
+- Implemented option `title_hjust = 0.5` for `jtheme()` 
+- Added the operator `%nin%` which is equivalent to `!(x %in% y)`
