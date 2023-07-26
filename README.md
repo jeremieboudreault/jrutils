@@ -65,8 +65,6 @@ Bugfixes
 - Move all others functions to jtheme or jutils prior to article 3
 - Test error message for save_plot()
 - Add function to avoid decimal on x-axis
-- Add %nin% funciton in rjutils
-- Add render_md_github
 - geom_col have a color around bar
 
 ### Work in progres :
@@ -94,3 +92,4 @@ Bugfixes
 - Got rid of .Rplots.pdf at the root of all Rproject
 - Implemented option `title_hjust = 0.5` for `jtheme()` 
 - Added the operator `%nin%` which is equivalent to `!(x %in% y)`
+- Added the function `render_md_github()` which allows conversion of .md to .html with Github format
