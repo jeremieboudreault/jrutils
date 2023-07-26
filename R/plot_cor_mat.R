@@ -22,16 +22,16 @@ plot_cor_mat <- function(x, title = NULL, rotate_x_labs = 45, ...) {
 
     # Extract colnames.
     cn <- colnames(cormat)
-    cormat <- as.data.table(as.data.frame(cormat))
+    cormat <- data.table::setDT(as.data.frame(cormat))
     cormat$rn <- colnames(cormat)
 
     # Melt variables.
-    cormat_melt <- melt(cormat, id.vars = "rn")
-    cormat_melt <- cormat_melt[abs(value) > 0.0000001, ]
-    cormat_melt[, rn := factor(rn, levels = rev(cn[-1]))]
-    cormat_melt[, variable := factor(variable, levels = cn[-length(cn)])]
-    cormat_melt[, value_t := round_trim(value * 100, 1)]
-    cormat_melt[value_t == "  0.0", value_t := ""]
+    cormat_melt <- data.table::melt(cormat, id.vars = "rn")
+    cormat_melt <- cormat_melt[abs(cormat_melt$value) > 0.0000001, ]
+    data.table::set(cormat_melt, j = "rn", value = factor(cormat_melt$rn, levels = rev(cn[-1])))
+    data.table::set(cormat_melt, j = "variable", value = factor(cormat_melt$variable, levels = cn[-length(cn)]))
+    data.table::set(cormat_melt, j = "value_t", value = round_trim(cormat_melt$value * 100, 1))
+    data.table::set(cormat_melt, i = which(cormat_melt$value_t == "  0.0"), j = "value_t", value = "")
 
     # Return plot object.
     return(
