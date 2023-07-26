@@ -19,6 +19,7 @@
 #' @param tight_facet : Toogle on/off the tight facetting
 #' @param title_size : Customise title size. Default to `14L`.
 #' @param title_face : Customise title face. Default to `"bold"`.
+#' @param title_hjust : Customise title position Default to `0.5`.
 #' @param facet_size : Customise facet title size. Default to `10L`.
 #' @param facet_face : Customise facet title face. Default to `"bold"`.
 #' @param x_labs_to_months : Transformation of julian days to month (TRUE/FALSE).
@@ -40,6 +41,7 @@ jtheme <- function(
     tight_facets     = FALSE,
     title_size       = 14L,
     title_face       = "bold",
+    title_hjust      = 0.5,
     facet_size       = 10L,
     facet_face       = "bold",
     x_labs_to_months = FALSE,
@@ -87,7 +89,7 @@ jtheme <- function(
         plot.title = element_text(
             size   = title_size,
             face   = title_face,
-            hjust  = 0.5,
+            hjust  = title_hjust,
             vjust  = 0.8,
             margin = margin(b = 10, t = 5)
         ),
