@@ -95,3 +95,4 @@ Bugfixes
 - Implemented option `title_hjust = 0.5` for `jtheme()` 
 - Added the operator `%nin%` which is equivalent to `!(x %in% y)`
 - Added the function `render_md_github()` which allows conversion of .md to .html with Github format
+- Added the function `plot_cor_mat()` to plot a correlation matrix as a ggplot2 object with jtheme. 
