@@ -26,24 +26,27 @@ plot_cor_mat <- function(x, title = NULL, rotate_x_labs = 45, ...) {
     cormat$rn <- colnames(cormat)
 
     # Melt variables.
-    cormat_melt <- data.table::melt(cormat, id.vars = "rn")
-    cormat_melt <- cormat_melt[abs(cormat_melt$value) > 0.0000001, ]
+    cormat_melt <- data.table::setDT(data.table::melt(cormat, id.vars = "rn"))
+    #cormat_melt <- cormat_melt[abs(cormat_melt$value) > 0.0000001, ]
     data.table::set(cormat_melt, j = "rn", value = factor(cormat_melt$rn, levels = rev(cn[-1])))
     data.table::set(cormat_melt, j = "variable", value = factor(cormat_melt$variable, levels = cn[-length(cn)]))
     data.table::set(cormat_melt, j = "value_t", value = round_trim(cormat_melt$value * 100, 1))
     data.table::set(cormat_melt, i = which(cormat_melt$value_t == "  0.0"), j = "value_t", value = "")
+    cormat_melt <- cormat_melt[!is.na(rn), ]
+    cormat_melt <- cormat_melt[!is.na(variable), ]
 
     # Return plot object.
     return(
         ggplot(cormat_melt, aes(x = variable, y = rn)) +
         geom_tile(aes(fill = value)) +
-        geom_text(aes(label = value_t), color = "white", family = "Source Sans Pro") +
+        geom_text(aes(label = value_t), color = "white", size = 3.5, family = "Source Sans Pro") +
         scale_y_discrete(expand = expansion(mult = c(0, 0))) +
         scale_x_discrete(expand = expansion(mult = c(0, 0))) +
         scale_fill_distiller(palette = "RdBu", direction = -1, limits = c(-1, 1))  +
         ggtitle(title) +
         labs(x = NULL, y = NULL, fill = "ρ =", alpha = 0) +
-        jtheme(legend_pos = "right", rotate_x_labs = rotate_x_labs, ...)
+        jtheme(legend_pos = "right", rotate_x_labs = rotate_x_labs)
     )
 
 }
+
