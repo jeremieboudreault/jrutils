@@ -6,7 +6,8 @@ Author: Jeremie Boudreault
 Maintainer: Jeremie Boudreault <prename.name@inrs.ca>
 Description: rjutils is a combination of R functions, especially for plotting and
             data management purposes.
-Imports: ggplot2, extrafont
+Depends: data.table, ggplot2
+Imports: extrafont
 Suggests: ggpubr
 License: CC BY-NC-SA 4.0
 Encoding: UTF-8
