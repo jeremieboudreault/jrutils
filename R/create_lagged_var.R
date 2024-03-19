@@ -6,29 +6,36 @@
 #' @param dates : The corresponding dates of the values.
 #' @param lag_0 : Initial lag. Default to `0`
 #' @param lag_1 : Last lag. Default to `1`
+#' @param check_dates : Check if dates are ordered prior to compute lagged values.
 #' @param fun : Function to aggreagate multiple values. Default to `mean`
 #'
 #' @export
 create_lagged_var <- function(
         values,
-        dates,
+        dates        = NULL,
         lag_0        = 0L,
         lag_1        = 1L,
+        check_dates  = TRUE,
         fun          = function(w, ...) mean(w, ...),
         ...) {
 
     # First, we will look that data are ordered (by dates) and complete.
-    date_rng <- range(dates)
-    date_seq <- seq(as.Date(date_rng[1L]), as.Date(date_rng[2L]), by = 1L)
+    if (check_dates) {
 
-    # Initial check on the number of rows.
-    if (length(values) != length(date_seq)) {
-        stop("Unique 'dates' provided does not match unique 'values'.")
-    }
+        # Sequence the dates.
+        date_rng <- range(dates)
+        date_seq <- seq(as.Date(date_rng[1L]), as.Date(date_rng[2L]), by = 1L)
 
-    # Check that data is ordered.
-    if (!all(dates == date_seq)) {
-        stop("'dates' are not ordered.")
+        # Initial check on the number of rows.
+        if (length(values) != length(date_seq)) {
+            stop("Unique 'dates' provided does not match unique 'values'.")
+        }
+
+        # Check that data is ordered.
+        if (!all(dates == date_seq)) {
+            stop("'dates' are not ordered.")
+        }
+
     }
 
     # Check for NAs in the supplied variable.
