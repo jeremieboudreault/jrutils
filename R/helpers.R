@@ -35,7 +35,8 @@ ul <- function(x, recursive = FALSE, use.names = FALSE) {
 round_trim <- function(x, nsmall) {
     format(
         x      = round(x, nsmall),
-        nsmall = nsmall
+        nsmall = nsmall,
+        trim   = TRUE
     )
 }
 
